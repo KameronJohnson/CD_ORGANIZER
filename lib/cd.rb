@@ -1,5 +1,5 @@
 class CD
-  @@CDs=[]
+  @@cds=[]
 
   define_method(:initialize) do |artist_name, album_name|
     @artist_name = artist_name
@@ -15,16 +15,16 @@ class CD
   end
 
   define_singleton_method(:all) do
-    @@CDs
+    @@cds
   end
 
   define_method(:save) do
-    @@CDs.push(self)
+    @@cds.push(self)
   end
 
   define_singleton_method(:find_artist) do |artist_search|
     found_artist = nil
-    @@CDs.each() do |cd|
+    @@cds.each() do |cd|
       if cd.artist_name() == artist_search
         found_artist = cd
       end
@@ -33,7 +33,7 @@ class CD
   end
 
   define_singleton_method(:clear) do
-    @@CDs = []
+    @@cds = []
   end
 
 

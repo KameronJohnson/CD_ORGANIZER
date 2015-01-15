@@ -18,10 +18,10 @@ describe(Artist) do
     end
   end
 
-  describe("#index") do
-    it("gives an index for each artist") do
+  describe("#id") do
+    it("gives an id for each artist") do
       test_artist = Artist.new("Michael Jackson")
-      expect(test_artist.index()).to(eq(1))
+      expect(test_artist.id()).to(eq(1))
     end
   end
 
@@ -42,20 +42,27 @@ describe(Artist) do
   end
 
   describe(".find") do
-    it("finds the artist by index") do
+    it("finds the artist by id") do
       test_artist = Artist.new("Michael Jackson")
       test_artist.save()
       test_artist2 = Artist.new("Billy Ocean")
       test_artist2.save()
-      expect(Artist.find(test_artist.index())).to(eq(test_artist))
+      expect(Artist.find(test_artist.id())).to(eq(test_artist))
     end
   end
 
-
+  describe("#add_album") do
+    it("adds an album to the album list of the artist") do
+      test_artist = Artist.new("Michael Jackson")
+      test_album = CD.new("Michael Jackson", "Thriller")
+      test_artist.add_album(test_album)
+      expect(test_artist.albums()).to(eq([test_album]))
+    end
+  end
   # describe("#albums") do
   #   it("returns the album name") do
-  #   test_artist = Artist.new("Michael Jackson","album")
-  #   expect(test_artist.artist_name()).to(eq(test_artist))
+  #   test_album = Artist.new("Michael Jackson","album")
+  #   expect(test_album.albums()).to(eq(test_artist))
   #   end
   # end
 

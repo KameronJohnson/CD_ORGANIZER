@@ -5,7 +5,7 @@ class Artist
   define_method (:initialize) do |artist_name|
     @artist_name = artist_name
     @albums = []
-    @index = @@artists.length().+1
+    @id = @@artists.length().+1
   end
 
   define_method(:artist_name) do
@@ -16,8 +16,12 @@ class Artist
     @albums
   end
 
-  define_method(:index) do
-    @index
+  define_method(:add_album) do |cds|
+    @albums.push(cds)
+  end
+
+  define_method(:id) do
+    @id
   end
 
   define_method(:save) do
@@ -35,7 +39,7 @@ class Artist
   define_singleton_method(:find) do |search_artist_name|
     found_artist_name = nil
     @@artists.each() do |artist|
-      if artist.index() == search_artist_name
+      if artist.id() == search_artist_name
         found_artist_name = artist
       end
     end
