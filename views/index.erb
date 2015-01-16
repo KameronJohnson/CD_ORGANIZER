@@ -1,0 +1,15 @@
+<h1>Artists</h1>
+
+<h3>Add an artist here:</h3>
+
+<form action="/artists" method="post">
+  <label for='artist_name'>Artist's name:</label>
+  <input id='artist_name' name='artist_name' type='text'>
+  <button type="submit">Add Artist</button>
+</form>
+
+<ul>
+  <% @artists.each() do |artist| %>
+    <li><a href="/artists/<%= artist.id() %>"><%= artist.artist_name() %></a></li>
+  <% end %>
+</ul>

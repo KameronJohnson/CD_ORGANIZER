@@ -1,0 +1,24 @@
+<h1>Add an album to <%= @artist.artist_name() %> </h1>
+
+<form action="/cds" method="post">
+  <input id='artist_id' name='artist_id' type='hidden' value='<%= @artist.id() %>'>
+
+  <label for='artist_name'>Artist's name:</label>
+  <input id='artist_name' name='artist_name' type='text'>
+
+  <label for='album_name'>Album name:</label>
+  <input id='album_name' name='album_name' type='text'>
+
+
+  <button type="submit">Add CD</button>
+</form>
+
+<h3>Here are all the albums for this artist:</h3>
+
+<ul>
+  <% @artist.albums().each() do |album| %>
+    <li><%= album.artist_name() %>: <i><%= album.album_name() %></i></a></li>
+  <% end %>
+</ul>
+
+<a href="/">Return to Main Page</a>

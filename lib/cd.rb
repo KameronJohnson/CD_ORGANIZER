@@ -4,11 +4,17 @@ class CD
   define_method(:initialize) do |artist_name, album_name|
     @artist_name = artist_name
     @album_name = album_name
+    @id = @@cds.length().+(1)
   end
 
   define_method(:artist_name) do
     @artist_name
   end
+  
+  define_method(:id) do
+    @id
+  end
+
 
   define_method(:album_name) do
     @album_name
